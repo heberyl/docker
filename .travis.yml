@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t heberyl/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run heberyl/docker-react npm run test -- --coverage
